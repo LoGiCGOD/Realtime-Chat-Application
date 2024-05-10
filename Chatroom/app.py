@@ -142,7 +142,7 @@ def handle_send_message_event(data):
                                                                     data['message']))
     data['created_at'] = datetime.now().strftime("%d %b, %H:%M")
     save_message(data['room'], data['message'], data['username'])
-    socketio.emit('receive_message', data, room=data['room'])
+    socketio.emit('receive_message', data, room=data['room'])  ##send message only to a particular room##
 
 
 @socketio.on('join_room')
